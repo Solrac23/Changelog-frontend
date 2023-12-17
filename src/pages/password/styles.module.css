@@ -1,0 +1,81 @@
+.containerPassword {
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.passwordForget {
+  height: 430px;
+  width: 450px;
+  background-color: var(--bg-login);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 5px var(--shadow);
+  border-radius: 6px;
+}
+
+.passwordForget .password {
+  width: 280px;
+  max-width: 1200px;
+  line-height: 32px;
+}
+
+.passwordForget .password label {
+  font-size: 16px;
+  display: block;
+  font-weight: 400;
+}
+
+.passwordForget .password input {
+  width: 100%;
+  height: 32px;
+  font-size: 14px;
+  color: var(--text-color2);
+  border: 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 5px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkContent{
+  display: flex;
+  align-items: center;
+}
+
+.linkContent span{
+  margin-top: 5px;
+  padding: 0 7px;
+}
+
+.passwordForget .backButton {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+  color: var(--text-color1);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: text-decoration 0.5ms;
+}
+
+.passwordForget .backButton:hover {
+  text-decoration: underline;
+}
+
+.btnEnter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,67 @@
+.container {
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.changelog {
+  height: 60%;
+  width: 60%;
+  overflow-y: auto; /* Adicionei uma barra de rolagem vertical se o conteúdo for muito grande */
+  background-color: var(--bg-login);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+  font: 400 18px 'Roboto', sans-serif;
+  box-shadow: 0 1px 5px var(--shadow);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+
+.changelog h1{
+  width: 15vw;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 20px;
+}
+
+.changelog > span{
+  width: 15vw;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.content {
+  width: 15vw;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.content p{
+  margin-bottom: 20px;
+}
+
+
+.categories{
+  margin-bottom: 20px;
+}
+
+.categories span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.listGroup{
+  margin-top: 10px;
+}
+
+.listGroup > li{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}

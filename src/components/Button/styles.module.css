@@ -1,0 +1,22 @@
+.btn[type="submit"] {
+  width: 150px;
+  border: 0;
+  margin-top: 15px;
+  background-color: var(--bg-button);
+  color: var(--bg-login);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px 20px;
+  border-radius: 32px;
+  outline-offset: 3px;
+  outline: 0px solid var(--bg-button);
+  cursor: pointer;
+  transition: background-color 500ms;
+  transition: outline 400ms;
+}
+
+.btn[type="submit"]:hover,
+.btn[type="submit"]:focus {
+  background-color: var(--text-color1);
+  outline: 3px solid #3571f3;
+}
