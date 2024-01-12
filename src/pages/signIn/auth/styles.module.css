@@ -68,6 +68,13 @@
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 5px;
 }
+
+.register{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .btnEnter {
   width: 100%;
   display: flex;
