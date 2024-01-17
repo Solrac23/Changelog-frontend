@@ -61,6 +61,25 @@ export function AuthProvider({children}) {
 		}
 	}
 
+	async function signUp({
+		name, email, password, CompanyName, uf, city
+	}){
+		try {
+			await api().post('/user',{
+				name,
+				email,
+				password,
+				CompanyName,
+				uf,
+				city
+			})
+
+			router.push('/signIn/auth')
+		} catch (err) {
+			console.error(err.message)
+		}
+	}
+
 	async function changePassword({email, new_password, confirm_password}){
 		try {
 			await api().put('/forgetpassword', {
@@ -76,7 +95,7 @@ export function AuthProvider({children}) {
 	}
 
 	return (
-		<AuthContext.Provider value={{user, isAuthenticated, signIn, changePassword}}>
+		<AuthContext.Provider value={{user, isAuthenticated, signIn, signUp, changePassword}}>
 			{children}
 		</AuthContext.Provider>
 	)
