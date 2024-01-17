@@ -22,7 +22,8 @@ export default function Auth() {
 			</Head>
 			<div className={styles.container}>
 				<div className={styles.login}>
-					<h2>Login</h2>
+					<h1>Login</h1>
+					<hr style={{ width: '45%', margin: '40px 0',}} />
 					<form onSubmit={handleSubmit(handleLogin)}>
 						<div className={styles.formGroup}>
 							<label htmlFor="email">E-mail:</label>
