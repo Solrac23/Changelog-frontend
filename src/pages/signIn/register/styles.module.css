@@ -1,0 +1,82 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUp {
+  height: 600px;
+  width: 570px;
+  background-color: var(--bg-login);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 5px var(--shadow);
+  border-radius: 6px;
+  border: 0;
+}
+
+
+.signUp > legend{
+  position: relative;
+  top: 0;
+  left: 145px;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  background-color: #84858a;
+  color: #fff;
+  font-size: 32px;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.signUp a {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: var(--text-color1);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: text-decoration 0.5ms;
+}
+
+.signUp a:hover {
+  text-decoration: underline;
+}
+
+.link{
+  margin-top: 10px;
+}
+
+.formGroup {
+  width: 50%;
+  max-width: 1200px;
+  font: 400 18px 'Roboto', sans-serif;
+  line-height: 28px;
+}
+
+.formGroup label {
+  font-size: 14px;
+  display: block;
+  font-weight: 400;
+}
+
+.formGroup input {
+  width: 100%;
+  height: 28px;
+  border: none;
+  box-shadow: 0 0 0 1px #84858a;
+  padding: 5px;
+}
+
+.signUp button {
+  margin: 15px;
+}
