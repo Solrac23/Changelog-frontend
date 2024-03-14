@@ -81,6 +81,15 @@
   border-radius: 3px;
 }
 
+.states {
+  width: 48%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+}
+
 #uf, #city {
   padding: 6px 10px;
   font-size: 12px;

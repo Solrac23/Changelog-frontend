@@ -8,46 +8,47 @@ import styles from '@/pages/signIn/register/styles.module.css'
 import Button from '@/components/Button'
 
 export default function Register(){
-	const [ufs, setUfs] = useState([])
-	const [cities, setCities] = useState([])
+	const [uf, setUf] = useState([])
+	const [city, setCity] = useState(['Selecione...'])
 
-	const [state, setState] = useState('') // vazio por enquanto
+	const [isDisabled, setIsDisabled] = useState(true) // vazio por enquanto
 	const { register, handleSubmit} = useForm()
 	const { signUp } = useAuth()
-	
+
 	async function handleRegister(data) {
 		await signUp(data)
 	}
-
+	// Pegar as UFs
 	useEffect(() => {
 		async function handleStates(){
 			try{
 				const response = await ibge().get('/ibge/uf/v1')
 				const states = response.data
-				setUfs(states)
+				setUf(states)
+	
 			}catch(err){
 				console.error(err.message)
 			}
 		}
-
 		handleStates()
 	},[])
 
-	useEffect(() => {
-		async function handleCities(siglaUF){
-			try{
-				// eslint-disable-next-line quotes
-				const response = await ibge().get(`/ibge/municipios/v1/${siglaUF}?providers=dados-abertos-br,gov,wikipedia`)
-				const cities = response.data
-
-				setCities(cities)
-			}catch(err){
-				console.error(err.message)
-			}
+	async function handleCities(siglaUF){
+		try{
+			// eslint-disable-next-line quotes
+			const response = await ibge().get(`/ibge/municipios/v1/${siglaUF}?providers=dados-abertos-br,gov,wikipedia`)
+			const cities = response.data
+			
+			setCity(cities)
+		}catch(err){
+			console.error(err.message)
 		}
+	}
 
-		handleCities(state)
-	}, [state])
+	function handleSelectUF(e){
+		setIsDisabled(false)
+		handleCities(e.target.value)
+	}
 
 	return(
 		<>
@@ -109,6 +110,48 @@ export default function Register(){
 								id="password" 
 							/>
 						</div>
+						<div className={styles.states}>
+							<div className={styles.formGroup}>
+								<label htmlFor="uf">Uf</label>
+								<select
+									{...register( 'uf', { required: true } )}
+									onChange={(e) => handleSelectUF(e)}  
+									name="uf"
+									id={styles.uf}
+								>
+									{uf.map((state) => {
+										return (
+											<option 
+												key={state.id}
+												value={state.sigla}
+											>
+												{state.sigla}
+											</option>
+										)
+									})}
+								</select>
+							</div>
+							<div className={styles.formGroup}>
+								<label htmlFor="city">Cidade</label>
+								<select
+									{...register( 'city', { required: true } )} 
+									name="city" 
+									id={styles.city}
+									disabled={isDisabled}
+								>
+									{city.map((city, index) => {
+										return(
+											<option 
+												key={index} 
+												value={!city.nome ? ''  : city.nome}
+											>
+												{!city.nome ? city : city.nome}
+											</option>
+										)
+									})}
+								</select>
+							</div>
+						</div>
 						<div className={styles.formGroup}>
 							<label htmlFor="CompanyName">Nome da Empresa</label>
 							<input
@@ -118,41 +161,9 @@ export default function Register(){
 								id="CompanyName" 
 							/>
 						</div>
-						<div className={styles.formGroup}>
-							<label htmlFor="uf">Uf</label>
-							<select
-								{...register( 'uf', { required: true } )}
-								onChange={(e) => setState(e.target.value)}
-								name="uf"
-								id={styles.uf}
-							>
-								{ufs.map((state) => {
-									return (
-										<option 
-											key={state.id} 
-											value={state.sigla}
-										>
-											{state.sigla}
-										</option>
-									)
-								})}
-							</select>
-						</div>
-						<div className={styles.formGroup}>
-							<label htmlFor="city">Cidade</label>
-							<select
-								{...register( 'city', { required: true } )} 
-								name="city" 
-								id={styles.city}
-							>
-								{cities.map((city, index) => {
-									return(
-										<option key={index} value={city.nome}>{city.nome}</option>
-									)
-								})}
-							</select>
-						</div>
-						<Button typeBtn={'submit'} text={'Salvar'} />
+						<Button typeBtn={'submit'} block={true}>
+							Enviar
+						</Button>
 						<div className={styles.link}>
 							<span>Já tem uma conta?</span>
 							<Link href='/signIn/auth/' className={styles.backButton}>Login</Link>
