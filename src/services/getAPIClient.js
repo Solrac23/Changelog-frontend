@@ -22,7 +22,7 @@ export function getAPIClient(ctx){
 export function getAPIIBGE(){
 	const api = axios.create({
 		baseURL: 'https://brasilapi.com.br/api',
-		timeout: 2000,
+		timeout: 4000,
 	})
 
 	api.interceptors.request.use(config => {
