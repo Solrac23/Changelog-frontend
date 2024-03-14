@@ -54,7 +54,9 @@ export default function Password(){
 						/>
 					</div>
 					<div className={styles.btnEnter}>
-						<Button typeBtn={'submit'} text={'Confirmar'}/>
+						<Button typeBtn={'submit'}>
+							Confirmar
+						</Button>
 					</div>
 					<div className={styles.link}>
 						<Link href='/signIn/auth/' className={styles.backButton}>

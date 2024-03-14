@@ -53,7 +53,9 @@ export default function Auth() {
 							<Link href='/password' title='Esqueceu a senha?'>Esqueceu a senha?</Link>
 						</div>
 						<div className={styles.btnEnter}>
-							<Button typeBtn={'submit'} text={'Entrar'}/>
+							<Button typeBtn={'submit'}>
+								Entrar
+							</Button>
 						</div>
 						<div className={styles.register}>
 							<Link href="/signIn/register" title='Cadastrar'>Não tem conta?</Link>
