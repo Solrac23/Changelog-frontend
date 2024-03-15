@@ -113,3 +113,24 @@
   font-weight: 400;
   margin-bottom: 5px;
 }
+
+/* height: 720px;
+width: 810px; */
+
+@media screen and (min-width: 480px){
+  #signUp{
+    height: 520px;
+    width: 610px;
+    gap: 1px;
+
+  }
+
+  #signUp > legend{
+    position: relative;
+    top: 0;
+    left: 155px;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+  }
+}
