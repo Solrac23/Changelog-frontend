@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
-export default function Button({text, typeBtn}){
+export default function Button({typeBtn, block, children}){
   return(
-    <button className={styles.btn} type={typeBtn}>{text}</button>
+    <button className={styles.btn} type={typeBtn} disabled={block}>{children}</button>
   )
 }

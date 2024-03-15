@@ -16,8 +16,14 @@
   transition: outline 400ms;
 }
 
-.btn[type="submit"]:hover,
-.btn[type="submit"]:focus {
+.btn[type="submit"]:disabled {
+  background-color: var(--bg-button);
+  opacity: 0.4;
+  color: var(--bg-login);
+}
+
+.btn[type="submit"]:hover:enabled,
+.btn[type="submit"]:focus:enabled {
   background-color: var(--text-color1);
   outline: 3px solid #3571f3;
 }
